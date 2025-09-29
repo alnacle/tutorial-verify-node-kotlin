@@ -17,14 +17,19 @@ const credentials = new Auth({
   privateKey: process.env.VONAGE_PRIVATE_KEY,
 });
 
-const options = {};
 const verifyClient = new Verify2(credentials);
+
+app.get("/", (req, res) => {
+  res.send("Vonage Verify backend is running.");
+});
 
 app.post("/verification", async (req, res) => {
   const { phone } = req.body || null;
   if (!phone) {
     return res.status(400).json({ error: "Phone number is required." });
   }
+
+  console.log("Received verification request: ", phone);
 
   // Call to Verify2
   try {
@@ -55,7 +60,9 @@ app.post("/verification", async (req, res) => {
 });
 
 app.post("/callback", async (req, res) => {
+  console.log("---- Callback ----");
   console.log(req.body);
+  console.log("------------------");
   const { request_id, status } = req.body;
   return res.status(200).json({ status: status });
 });
