@@ -2,8 +2,7 @@
 
 This demo shows how to verify your identify using your phone number. The demo uses the following Vonage APIs:
 
-* [Network Enablement API](https://developer.vonage.com/en/getting-started-network/concepts/network-enablement-api)
-* [Number Verification API](https://developer.vonage.com/en/number-verification/overview)
+* [Verify API](https://developer.vonage.com/en/verify/overview)
 
 ## Common Prerequisites
 
